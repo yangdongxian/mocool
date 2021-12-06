@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
+    <data-source source="LOCAL" name="cool@uat-a-pg.ttbike.com.cn" uuid="7fe8ae61-dd57-44d3-8fdc-96f37cc969cc">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://uat-a-pg.ttbike.com.cn:3800/cool</jdbc-url>
+    </data-source>
+    <data-source source="LOCAL" name="MySQL - uniform_account_center@10.69.3.123" uuid="f4ff551f-8cd5-4672-bf66-a642066a57a1">
+      <driver-ref>mysql.8</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://10.69.18.215:33071/uniform_account_center</jdbc-url>
+    </data-source>
+    <data-source source="LOCAL" name="bike_order@10.69.30.129" uuid="3e169462-df6d-4f57-a91f-b0b6c55b5027">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://10.69.30.129:3003/bike_order</jdbc-url>
+    </data-source>
+  </component>
+</project>
