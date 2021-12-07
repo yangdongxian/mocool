@@ -1,10 +1,11 @@
-package mocool
+package main
 
 import (
 	"bytes"
 	"encoding/json"
 	"fmt"
 	"math/rand"
+	"mocool/interfaceTest"
 	"time"
 )
 
@@ -22,12 +23,14 @@ func main() {
 	fmt.Println("listValue:", listValue)
 
 	//sliceTest()
+	//interfaceable.PrintStr("aa")
+	//c2 := Country{"china"}
+	//c1 := interfaceable.Country{"China"}
+	//interfaceable.PrintStr(c1)
+	//interfaceable.PrintStr(c2)
+	c1 := interfaceTest.Country{"China"}
+	interfaceTest.PrintStr(c1)
 
-	c1 := Country{"China"}
-	c2 := City{"ShangHai"}
-	PrintStr()
-	PrintStr(c1)
-	PrintStr(c2)
 }
 
 //查询数据库返回列表，随时获取一条数据
