@@ -1,4 +1,4 @@
-package interfaceTest
+package moTest
 
 import "fmt"
 

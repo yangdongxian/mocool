@@ -5,7 +5,9 @@ import (
 	"encoding/json"
 	"fmt"
 	"math/rand"
-	"mocool/interfaceTest"
+	"mocool/moTest"
+	"strconv"
+	"strings"
 	"time"
 )
 
@@ -23,14 +25,78 @@ func main() {
 	fmt.Println("listValue:", listValue)
 
 	//sliceTest()
-	//interfaceable.PrintStr("aa")
-	//c2 := Country{"china"}
-	//c1 := interfaceable.Country{"China"}
-	//interfaceable.PrintStr(c1)
-	//interfaceable.PrintStr(c2)
-	c1 := interfaceTest.Country{"China"}
-	interfaceTest.PrintStr(c1)
 
+	c1 := moTest.Country{"China"}
+	c2 := moTest.City{"Shanghai"}
+	moTest.PrintStr(c1)
+	moTest.PrintStr(c2)
+
+	var name string
+	var age int
+	age = 22
+	name = strconv.Itoa(age)
+	fmt.Println("name:",name)
+	//update name string to int
+	//update name string to int
+	name = "23"
+	age,_ = strconv.Atoi(name)
+	fmt.Println("age:",age)
+
+	//funcOptons
+	server,_:=moTest.NewServer("localhost:127.0.0.0.1",8080)
+	fmt.Println("server:",server)
+
+	var maplist = []string{"Hao","Cheng","Mess"}
+	y := moTest.MapStrToStr(maplist, func(s string) string {
+		return strings.ToLower(s)
+	})
+	fmt.Println("mapable:",y)
+	token := "e3f054bdd92b46a0b6f2e0365810f139"
+	token_len := GetStringSize(token)
+	fmt.Println("token_len:",token_len)
+
+
+}
+func OperationV2(arg []string) string {
+	var result float64
+	var resultStr string
+	//var rem int
+	a, err1 := strconv.ParseFloat(arg[0], 64)
+	b, err2 := strconv.ParseFloat(arg[1], 64)
+	if err1 != nil {
+		return "-1"
+	}
+	if err2 != nil {
+		return "-1"
+	}
+	switch arg[2] {
+	case "add":
+		result = a + b
+	case "minus":
+		result = a - b
+	case "multi":
+		result = a * b
+	case "div":
+		result = a / b
+	case "rem":
+		result = float64(int64(a) % int64(b))
+	default:
+		return "-1"
+	}
+	if len(arg) >= 4 {
+		dout, err := strconv.ParseInt(arg[3], 10, 32)
+		if err != nil {
+			return "传入参数有误,保存小数点数为正整数或0"
+		}
+		str := "%." + fmt.Sprintf("%d", dout) + "f"
+		resultStr = fmt.Sprintf(str, result)
+
+	} else {
+		resultStr = fmt.Sprintf("%.8f", result)
+		resultStr = strings.TrimRight(resultStr, "0")
+		resultStr = strings.TrimRight(resultStr, ".")
+	}
+	return resultStr
 }
 
 //查询数据库返回列表，随时获取一条数据
@@ -69,6 +135,16 @@ func GetListRandomValue(args string) string {
 	return string(listValue)
 }
 
+// 定义一个变量
+func GetVar(args string) string{
+	return args
+}
+
+//获取字符串长度
+func GetStringSize(args string) string{
+	str_len := strconv.Itoa(len([]rune(args)))
+	return str_len
+}
 //查询数据库返回列表，随时获取一条数据
 //func GetDBlistIndexRow(args[] string) string {
 //    var rowsJson []interface{}
