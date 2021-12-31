@@ -35,27 +35,29 @@ func main() {
 	var age int
 	age = 22
 	name = strconv.Itoa(age)
-	fmt.Println("name:",name)
+	fmt.Println("name:", name)
 	//update name string to int
 	//update name string to int
 	name = "23"
-	age,_ = strconv.Atoi(name)
-	fmt.Println("age:",age)
+	age, _ = strconv.Atoi(name)
+	fmt.Println("age:", age)
 
 	//funcOptons
-	server,_:=moTest.NewServer("localhost:127.0.0.0.1",8080)
-	fmt.Println("server:",server)
+	server, _ := moTest.NewServer("localhost:127.0.0.0.1", 8080)
+	fmt.Println("server:", server)
 
-	var maplist = []string{"Hao","Cheng","Mess"}
+	var maplist = []string{"Hao", "Cheng", "Mess"}
 	y := moTest.MapStrToStr(maplist, func(s string) string {
 		return strings.ToLower(s)
 	})
-	fmt.Println("mapable:",y)
+	fmt.Println("mapable:", y)
 	token := "e3f054bdd92b46a0b6f2e0365810f139"
 	token_len := GetStringSize(token)
-	fmt.Println("token_len:",token_len)
+	fmt.Println("token_len:", token_len)
 
+	moTest.TraceString()
 
+	moTest.StudentInfo()
 }
 func OperationV2(arg []string) string {
 	var result float64
@@ -136,15 +138,16 @@ func GetListRandomValue(args string) string {
 }
 
 // 定义一个变量
-func GetVar(args string) string{
+func GetVar(args string) string {
 	return args
 }
 
 //获取字符串长度
-func GetStringSize(args string) string{
+func GetStringSize(args string) string {
 	str_len := strconv.Itoa(len([]rune(args)))
 	return str_len
 }
+
 //查询数据库返回列表，随时获取一条数据
 //func GetDBlistIndexRow(args[] string) string {
 //    var rowsJson []interface{}
